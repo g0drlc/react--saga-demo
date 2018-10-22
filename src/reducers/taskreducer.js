@@ -19,7 +19,7 @@ export function TaskReducer(state = {}, action) {
         loading: true
       };
     case TaskConstants.Edit_Success:
-      debugger;
+      
       return {
         ...state,
         task: action.result,
@@ -27,7 +27,7 @@ export function TaskReducer(state = {}, action) {
       };
 
     case TaskConstants.Task_Change:
-      debugger;
+      
       return {
         ...state,
         taskInitial: action.result

@@ -19,7 +19,7 @@ class TextInput extends React.Component {
     }
   };
   validate = e => {
-    debugger;
+    
     this.setState({
       isValid: true
     });
@@ -47,7 +47,7 @@ class TextInput extends React.Component {
         errormessage: `${e.target.placeholder} lenth should be less than ${
           this.props.maxLength
         }`
-      });
+      }); 
     }
   };
   render() {

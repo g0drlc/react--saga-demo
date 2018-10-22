@@ -41,7 +41,7 @@ class TaskAddEdit extends React.Component {
   }
 
   componentWillReceiveProps( props) {
-    debugger
+    
     // if (props.match.params.id) {
     // const { task } = props;
     // this.setState({
@@ -66,12 +66,12 @@ class TaskAddEdit extends React.Component {
     this.reset();
   };
 
-  handleChange = e => {debugger
+  handleChange = e => {
     const { taskInitial } = this.props;
     const { name, value } = e.target;
     let model={...taskInitial};
     model[name] = value;
-    debugger
+    
     this.props.taskChange(model);
     // this.setState({
     //   task: {
@@ -95,7 +95,7 @@ class TaskAddEdit extends React.Component {
   reset() {
     if (this.props.match.params.id) {
       const { task } = this.props;
-      debugger;
+      
       this.props.taskChange(task);
       // this.setState({
       //   task: {
@@ -106,9 +106,9 @@ class TaskAddEdit extends React.Component {
   }
 
   render() {
-    debugger
+    
     const { taskInitial } = this.props;
-    debugger
+    
     return (
       <div>
         <div>
@@ -196,7 +196,7 @@ const mapDispatchtoProps = dispatch =>
 
 function mapStateToProps(state) {
   const { task, taskInitial } = state;
-  debugger
+  
   return {
     task:task,
     taskInitial:taskInitial

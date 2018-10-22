@@ -10,7 +10,7 @@ class App extends Component {
     super();
 
     history.listen(location => {
-      // alert(JSON.stringify(location));
+    debugger
     });
   }
 
@@ -50,7 +50,7 @@ class App extends Component {
           <Route exact path="/" component={TodoList} />
           <Route exact path="/todolist" component={TodoList} />
           <Route exact path="/addedit" component={TaskAddEdit} />
-          <Route path="/addedit/:id" component={TaskAddEdit} />
+          <Route path="/addedit/:id" component={TaskAddEdit} /> 
         </div>
       </Router>
     );
