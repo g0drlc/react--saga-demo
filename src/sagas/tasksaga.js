@@ -9,7 +9,16 @@ import {
 import { TaskConstants } from "../constants";
 
 function* getTasks() {
-  const result = yield getAllTasks().then(res => res);
+  const result = yield getAllTasks().then(
+    res => {
+      debugger;
+      return res;
+    },
+    error => {
+      debugger;
+      console.log(error);
+    }
+  );
   yield put({ type: TaskConstants.Get_Success, result: result });
 }
 

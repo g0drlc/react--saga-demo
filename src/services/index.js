@@ -3,14 +3,17 @@ import fetch from "isomorphic-fetch";
 let Task_Url = "https://practiceapi.devmountain.com/api/tasks";
 
 const getAllTasks = () => {
-  return fetch(Task_Url)
-    .then(res => {
-      return res.json();
-    })
-    .catch(err => {
-      return err;
-    });
+  return fetch(Task_Url+"1212").then(handleResponse);
 };
+// const getAllTasks = () => {
+//   return fetch(Task_Url)
+//     .then(res => {
+//       return res.json();
+//     })
+//     .catch(err => {
+//       return err;
+//     });
+// };
 
 const createTask = model => {
   let req = {
@@ -70,4 +73,17 @@ const updateTask = (model, id) => {
       return err;
     });
 };
+
+function handleResponse(response) {
+  debugger;
+  return response.text().then(text => {
+    const data = text && JSON.parse(text);
+    if (!response.ok) {
+      const error = (data && data.Result) || response.statusText;
+      return Promise.reject(error);
+    }
+    return data;
+  });
+}
+
 export { getAllTasks, createTask, deleteTask, completeTask, updateTask };

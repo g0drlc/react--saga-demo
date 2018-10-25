@@ -5,12 +5,13 @@ import { Router, Route } from "react-router-dom";
 import { history } from "../src/history/history";
 import { TodoList } from "./components/todo-list";
 import { TaskAddEdit } from "./components/add-edit-task";
+import { PrivateRoute } from "./routes/private-route";
 class App extends Component {
   constructor(props) {
     super();
 
     history.listen(location => {
-    debugger
+      debugger;
     });
   }
 
@@ -41,16 +42,19 @@ class App extends Component {
     return (
       <Router history={history}>
         <div>
-          {loading == true && (
-            <div className="dv-loader">
-              <div className="loader" />
-            </div>
-          )}
+          asfwfgwrfwragrwwaawr
+          <div>
+            {loading == true && (
+              <div className="dv-loader">
+                <div className="loader" />
+              </div>
+            )}
 
-          <Route exact path="/" component={TodoList} />
-          <Route exact path="/todolist" component={TodoList} />
-          <Route exact path="/addedit" component={TaskAddEdit} />
-          <Route path="/addedit/:id" component={TaskAddEdit} /> 
+            <PrivateRoute exact path="/" component={TodoList} />
+            <PrivateRoute exact path="/todolist" component={TodoList} />
+            <Route exact path="/addedit" component={TaskAddEdit} />
+            <Route path="/addedit/:id" component={TaskAddEdit} />
+          </div>
         </div>
       </Router>
     );
