@@ -1,22 +1,22 @@
 export const TaskConstants = {
-    Get_Request: "Get_Request",
-    Get_Success: "Get_Success",
+    GET_REQUEST: "GET_REQUEST",
+    GET_SUCCESS: "GET_SUCCESS",
   
-    Create_Request: "Create_Request",
-    Create_Success: "Create_Success",
+    CREATE_REQUEST: "CREATE_REQUEST",
+    CREATE_SUCCESS: "CREATE_SUCCESS",
   
-    Edit_Request: "Edit_Request",
-    Edit_Success: "Edit_Success",
+    EDIT_REQUEST: "EDIT_REQUEST",
+    EDIT_SUCCESS: "EDIT_SUCCESS",
   
-    Delete_Request: "Delete_Request",
-    Delete_Success: "Delete_Success",
+    DELETE_REQUEST: "DELETE_REQUEST",
+    DELETE_SUCCESS: "DELETE_SUCCESS",
   
-    Complete_Request: "Complete_Request",
-    Complete_Success: "Complete_Success",
+    COMPLETE_REQUEST: "COMPLETE_REQUEST",
+    COMPLETE_SUCCESS: "COMPLETE_SUCCESS",
   
-    Update_Request: "Update_Request",
-    Update_Success: "Update_Success",
+    UPDATE_REQUEST: "UPDATE_REQUEST",
+    UPDATE_SUCCESS: "UPDATE_SUCCESS",
 
-    Task_Change:"Task_Change"
+    TASK_CHANGE:"TASK_CHANGE"
   };
   

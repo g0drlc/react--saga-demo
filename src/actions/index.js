@@ -1,36 +1,36 @@
 import { TaskConstants } from "../constants";
 
 const getTasksAction = () => ({
-  type: TaskConstants.Get_Request
+  type: TaskConstants.GET_REQUEST
 });
 
 const editTasksAction = id => ({
-  type: TaskConstants.Edit_Request,
+  type: TaskConstants.EDIT_REQUEST,
   id: id
 });
 
 const createTasksAction = title => ({ 
-  type: TaskConstants.Create_Request,
+  type: TaskConstants.CREATE_REQUEST,
   title: title
 });
 
 const updateTasksAction = model => ({
-  type: TaskConstants.Update_Request,
+  type: TaskConstants.UPDATE_REQUEST,
   model: model
 });
 
 const deleteTasksAction = id => ({
-  type: TaskConstants.Delete_Request,
+  type: TaskConstants.DELETE_REQUEST,
   id: id
 });
 
 const completeTasksAction = id => ({
-  type: TaskConstants.Complete_Request,
+  type: TaskConstants.COMPLETE_REQUEST,
   id: id
 });
 
 const taskChange = task => ({
-  type: TaskConstants.Task_Change,
+  type: TaskConstants.TASK_CHANGE,
   result: task
 });
 

@@ -19,11 +19,11 @@ function* getTasks() {
       console.log(error);
     }
   );
-  yield put({ type: TaskConstants.Get_Success, result: result });
+  yield put({ type: TaskConstants.GET_SUCCESS, result: result });
 }
 
 function* getTasksWatcher() {
-  yield takeLatest(TaskConstants.Get_Request, getTasks);
+  yield takeLatest(TaskConstants.GET_REQUEST, getTasks);
 }
 
 function* editTasks(model) {
@@ -32,48 +32,48 @@ function* editTasks(model) {
     return model.id === parseInt(item.id, 10);
   });
 
-  yield put({ type: TaskConstants.Edit_Success, result: sinGleRec[0] });
+  yield put({ type: TaskConstants.EDIT_SUCCESS, result: sinGleRec[0] });
 }
 
 function* editTasksWatcher() {
-  yield takeLatest(TaskConstants.Edit_Request, editTasks);
+  yield takeLatest(TaskConstants.EDIT_REQUEST, editTasks);
 }
 
 function* createTasks(model) {
   let req = { title: model.title };
   const result = yield createTask(req).then(res => res);
-  yield put({ type: TaskConstants.Get_Success, result: result });
+  yield put({ type: TaskConstants.GET_SUCCESS, result: result });
 }
 
 function* createTasksWatcher() {
-  yield takeLatest(TaskConstants.Create_Request, createTasks);
+  yield takeLatest(TaskConstants.CREATE_REQUEST, createTasks);
 }
 
 function* deleteTasks(model) {
   const result = yield deleteTask(model.id).then(res => res);
-  yield put({ type: TaskConstants.Get_Success, result: result });
+  yield put({ type: TaskConstants.GET_SUCCESS, result: result });
 }
 
 function* completeTasks(model) {
   const result = yield completeTask(model.id).then(res => res);
-  yield put({ type: TaskConstants.Get_Success, result: result });
+  yield put({ type: TaskConstants.GET_SUCCESS, result: result });
 }
 
 function* deleteTasksWatcher() {
-  yield takeLatest(TaskConstants.Delete_Request, deleteTasks);
+  yield takeLatest(TaskConstants.DELETE_REQUEST, deleteTasks);
 }
 
 function* completeTasksWatcher() {
-  yield takeLatest(TaskConstants.Complete_Request, completeTasks);
+  yield takeLatest(TaskConstants.COMPLETE_REQUEST, completeTasks);
 }
 
 function* updateTasks(model) {
   const result = yield updateTask(model.model, model.model.id).then(res => res);
-  yield put({ type: TaskConstants.Get_Success, result: result });
+  yield put({ type: TaskConstants.GET_SUCCESS, result: result });
 }
 
 function* updateTasksWatcher() {
-  yield takeLatest(TaskConstants.Update_Request, updateTasks);
+  yield takeLatest(TaskConstants.UPDATE_REQUEST, updateTasks);
 }
 
 export default function* rootSaga() {

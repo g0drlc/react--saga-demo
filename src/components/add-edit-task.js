@@ -155,7 +155,7 @@ class TaskAddEdit extends React.Component {
                 &nbsp;
                 <Button
                   color="default"
-                  variant="contained"
+                  variant="contained" 
                   onClick={this.handleReset}
                 >
                   Cancel
