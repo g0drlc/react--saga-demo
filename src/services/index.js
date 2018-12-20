@@ -3,7 +3,7 @@ import fetch from "isomorphic-fetch";
 let Task_Url = "https://practiceapi.devmountain.com/api/tasks";
 
 const getAllTasks = () => {
-  return fetch(Task_Url+"1212").then(handleResponse);
+  return fetch(Task_Url).then(handleResponse);
 };
 // const getAllTasks = () => {
 //   return fetch(Task_Url)
@@ -75,7 +75,6 @@ const updateTask = (model, id) => {
 };
 
 function handleResponse(response) {
-  debugger;
   return response.text().then(text => {
     const data = text && JSON.parse(text);
     if (!response.ok) {

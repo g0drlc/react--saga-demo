@@ -2,11 +2,7 @@ import React from "react";
 import { history } from "../history/history";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableHead from "@material-ui/core/TableHead";
-import TableCell from "@material-ui/core/TableCell";
-import TableRow from "@material-ui/core/TableRow";
+
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import {
@@ -15,6 +11,7 @@ import {
   completeTasksAction
 } from "../actions";
 import TextInput from "../elements/text-input";
+import { TodoListTable } from "./todo-list-table";
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -65,6 +62,8 @@ class TodoList extends React.Component {
     });
   };
   handleSubmit = e => {};
+  componentWillReceiveProps(props) {}
+
   render() {
     const { tasks } = this.props;
     const { task, lstPersonal } = this.state;
@@ -124,67 +123,7 @@ class TodoList extends React.Component {
         >
           Add New To-Do
         </Button>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Title </TableCell>
-              <TableCell> </TableCell>
-              <TableCell> </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {!tasks && (
-              <TableRow>
-                <TableCell />
-              </TableRow>
-            )}
-
-            {tasks &&
-              tasks.map((o, i) => (
-                <TableRow key={i}>
-                  <TableCell
-                    className={
-                      o.completed === true
-                        ? "strike input-width"
-                        : " input-width"
-                    }
-                  >
-                    <a
-                      onClick={() => {
-                        history.push("/addedit/" + o.id);
-                      }}
-                    >
-                      {o.title}
-                    </a>
-                  </TableCell>
-                  <TableCell>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      disabled={o.completed}
-                      onClick={() => {
-                        this.handleComplete(o.id);
-                      }}
-                    >
-                      Complete
-                    </Button>
-                  </TableCell>
-                  <TableCell>
-                    <Button
-                      variant="contained"
-                      color="default"
-                      disabled={o.completed}
-                      onClick={() => {
-                        this.handleDelete(o.id);
-                      }}
-                    >
-                      X
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
-          </TableBody>
-        </Table>
+        <TodoListTable tasks={tasks} />
       </div>
     );
   }
@@ -217,4 +156,5 @@ const connectedTodoList = connect(
   mapStateToProps,
   mapDispatchtoProps
 )(TodoList);
+
 export { connectedTodoList as TodoList };

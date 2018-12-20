@@ -18,10 +18,9 @@ export class PrivateRoute extends React.Component {
     }, 1000);
   }
   render() {
-    debugger;
     const { component: Component, ...rest } = this.props;
     if (this.state.loading) {
-      return <div></div>;
+      return <div />;
     } else {
       return (
         <Route
@@ -63,5 +62,3 @@ export class PrivateRoute extends React.Component {
 //     }}
 //   />
 // );
-
-

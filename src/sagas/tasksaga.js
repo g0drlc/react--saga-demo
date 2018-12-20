@@ -11,11 +11,9 @@ import { TaskConstants } from "../constants";
 function* getTasks() {
   const result = yield getAllTasks().then(
     res => {
-      debugger;
       return res;
     },
     error => {
-      debugger;
       console.log(error);
     }
   );
