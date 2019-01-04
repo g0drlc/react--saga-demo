@@ -3,7 +3,6 @@ import React, { Component } from "react";
 const LoaderHOC = WrappedCOmponent => {
   return class LoaderHOC extends Component {
     render() {
-      debugger;
       return !this.props.tasks ? (
         <div>Loading...</div>
       ) : (

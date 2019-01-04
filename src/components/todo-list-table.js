@@ -8,7 +8,6 @@ import Button from "@material-ui/core/Button";
 import LoaderHOC from "../hoc/loaderHOC";
 class TodoListTable extends Component {
   render() {
-    debugger;
     const { tasks } = this.props;
     return (
       <div>

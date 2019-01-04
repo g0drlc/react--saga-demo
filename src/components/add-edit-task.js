@@ -2,6 +2,7 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { history } from "../history/history";
 import { connect } from "react-redux";
+import { Route } from "react-router-dom";
 import {
   getTasksAction,
   editTasksAction,
@@ -14,6 +15,8 @@ import {
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
+import NestList from "./nested/nest-list";
+import NestAdd from "./nested/nest-add";
 
 class TaskAddEdit extends React.Component {
   constructor(props) {
@@ -40,8 +43,7 @@ class TaskAddEdit extends React.Component {
     }
   }
 
-  componentWillReceiveProps( props) {
-    
+  componentWillReceiveProps(props) {
     // if (props.match.params.id) {
     // const { task } = props;
     // this.setState({
@@ -69,9 +71,9 @@ class TaskAddEdit extends React.Component {
   handleChange = e => {
     const { taskInitial } = this.props;
     const { name, value } = e.target;
-    let model={...taskInitial};
+    let model = { ...taskInitial };
     model[name] = value;
-    
+
     this.props.taskChange(model);
     // this.setState({
     //   task: {
@@ -95,7 +97,7 @@ class TaskAddEdit extends React.Component {
   reset() {
     if (this.props.match.params.id) {
       const { task } = this.props;
-      
+
       this.props.taskChange(task);
       // this.setState({
       //   task: {
@@ -106,11 +108,12 @@ class TaskAddEdit extends React.Component {
   }
 
   render() {
-    
     const { taskInitial } = this.props;
-    
+
     return (
       <div>
+        <Link to="/addedit/nestadd">nestadd</Link>
+        <Route exact path="/addedit/nestadd" component={NestAdd} />
         <div>
           {taskInitial && (
             <div>
@@ -155,7 +158,7 @@ class TaskAddEdit extends React.Component {
                 &nbsp;
                 <Button
                   color="default"
-                  variant="contained" 
+                  variant="contained"
                   onClick={this.handleReset}
                 >
                   Cancel
@@ -196,10 +199,10 @@ const mapDispatchtoProps = dispatch =>
 
 function mapStateToProps(state) {
   const { task, taskInitial } = state;
-  
+
   return {
-    task:task,
-    taskInitial:taskInitial
+    task: task,
+    taskInitial: taskInitial
   };
 }
 
