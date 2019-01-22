@@ -6,11 +6,13 @@ import { history } from "../src/history/history";
 import { TodoList } from "./components/todo-list";
 import { TaskAddEdit } from "./components/add-edit-task";
 import { PrivateRoute } from "./routes/private-route";
+import SimpleDialogDemo from "./components/nested/dialog-demo";
 // import Perf from "react-addons-perf"; // ES6
 // window.Perf = Perf;
 import ButtonOne from "./elements/button";
 import TestComponent from "./components/test";
 const LazyDemoComp = lazy(() => import("./components/test"));
+
 class App extends Component {
   constructor(props) {
     super();
@@ -43,7 +45,7 @@ class App extends Component {
   }
 
   render() {
-    // alert("render");
+    alert("render");
     const { loading } = this.props;
     return (
       <Router history={history}>
@@ -64,6 +66,7 @@ class App extends Component {
             <PrivateRoute exact path="/todolist" component={TodoList} />
             <Route exact path="/addedit" component={TaskAddEdit} />
             <Route path="/addedit/:id" component={TaskAddEdit} />
+            <Route path="/dialog" component={SimpleDialogDemo} />
           </div>
         </div>
       </Router>

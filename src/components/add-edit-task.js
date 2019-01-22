@@ -15,7 +15,7 @@ import {
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
-import NestList from "./nested/nest-list";
+import NestList from "./nested/dialog-demo";
 import NestAdd from "./nested/nest-add";
 
 class TaskAddEdit extends React.Component {
