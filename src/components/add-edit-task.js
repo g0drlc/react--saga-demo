@@ -54,6 +54,7 @@ class TaskAddEdit extends React.Component {
     // }
   }
   handleSave = e => {
+    debugger;
     if (this.props.match.params.id) {
       const { taskInitial } = this.props;
       taskInitial.id = parseInt(this.props.match.params.id, 10);
@@ -69,6 +70,7 @@ class TaskAddEdit extends React.Component {
   };
 
   handleChange = e => {
+    debugger;
     const { taskInitial } = this.props;
     const { name, value } = e.target;
     let model = { ...taskInitial };

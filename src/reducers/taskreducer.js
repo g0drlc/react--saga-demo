@@ -1,6 +1,7 @@
 import { TaskConstants } from "../constants";
 
 export function TaskReducer(state = {}, action) {
+  debugger;
   switch (action.type) {
     case TaskConstants.GET_REQUEST:
       return {
@@ -22,12 +23,14 @@ export function TaskReducer(state = {}, action) {
       return {
         ...state,
         task: action.result,
+        loading: false,
         taskInitial: action.result
       };
 
     case TaskConstants.TASK_CHANGE:
       return {
         ...state,
+        loading: false,
         taskInitial: action.result
       };
     // state={

@@ -45,7 +45,7 @@ class App extends Component {
   }
 
   render() {
-    alert("render");
+    // alert("render");
     const { loading } = this.props;
     return (
       <Router history={history}>
@@ -53,11 +53,11 @@ class App extends Component {
           {/* <ButtonOne disable /> */}
           {/* <TestComponent id={1} /> */}
           <div>
-            {/* {loading == true && (
+            {loading == true && (
               <div className="dv-loader">
                 <div className="loader" />
               </div>
-            )} */}
+            )}
             <PrivateRoute exact path="/" component={TodoList} />
             <React.Suspense fallback={<div>Loading Component...</div>}>
               <Route exact path="/lazy" component={LazyDemoComp} />

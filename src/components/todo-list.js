@@ -62,14 +62,17 @@ class TodoList extends React.Component {
     });
   };
   handleSubmit = e => {};
-  componentWillReceiveProps(props) {}
+  componentWillReceiveProps(props) {
+    debugger;
+  }
 
   render() {
     const { tasks } = this.props;
     const { task, lstPersonal } = this.state;
+    debugger;
     return (
       <div style={dvBorder}>
-        <div>
+        {/* <div>
           {lstPersonal &&
             lstPersonal.map((o, i) => {
               return (
@@ -87,8 +90,8 @@ class TodoList extends React.Component {
                 </div>
               );
             })}
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <TextInput
             onChange={this.handleChange}
             value={task.title}
@@ -111,7 +114,7 @@ class TodoList extends React.Component {
             maxLength="10"
           />
           <Button onSubmit={this.handleSubmit}>Save</Button>
-        </div>
+        </div> */}
         <h3>To-Do:</h3>
         <hr />
         <Button
@@ -146,6 +149,7 @@ const mapDispatchtoProps = dispatch =>
   );
 
 function mapStateToProps(state) {
+  debugger;
   const { tasks } = state;
   return {
     tasks

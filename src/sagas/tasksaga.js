@@ -21,6 +21,7 @@ function* getTasks() {
 }
 
 function* getTasksWatcher() {
+  debugger;
   yield takeLatest(TaskConstants.GET_REQUEST, getTasks);
 }
 
@@ -38,8 +39,10 @@ function* editTasksWatcher() {
 }
 
 function* createTasks(model) {
+  debugger;
   let req = { title: model.title };
   const result = yield createTask(req).then(res => res);
+  debugger;
   yield put({ type: TaskConstants.GET_SUCCESS, result: result });
 }
 
