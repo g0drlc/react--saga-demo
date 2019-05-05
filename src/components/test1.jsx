@@ -7,14 +7,11 @@ class TestComponent extends Component {
     this.state = { id: 123, name: "wwww" };
   }
 
-  componentWillMount() {
-    debugger;
-  }
+  componentWillMount() {}
 
   componentDidMount() {}
 
   componentWillReceiveProps(nextProps) {
-    debugger;
     this.setState({
       ...this.state,
       name: "eeee"
@@ -22,21 +19,14 @@ class TestComponent extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    debugger;
     return true;
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    debugger;
-  }
+  componentWillUpdate(nextProps, nextState) {}
 
-  componentDidUpdate(prevProps, prevState) {
-    debugger;
-  }
+  componentDidUpdate(prevProps, prevState) {}
 
-  componentWillUnmount() {
-    debugger;
-  }
+  componentWillUnmount() {}
 
   render() {
     return (

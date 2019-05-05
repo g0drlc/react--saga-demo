@@ -9,7 +9,7 @@ import {
   getTasksAction,
   deleteTasksAction,
   completeTasksAction
-} from "../actions";
+} from "../redux-modules/actions";
 import TextInput from "../elements/text-input";
 import { TodoListTable } from "./todo-list-table";
 
@@ -62,14 +62,12 @@ class TodoList extends React.Component {
     });
   };
   handleSubmit = e => {};
-  componentWillReceiveProps(props) {
-    debugger;
-  }
+  componentWillReceiveProps(props) {}
 
   render() {
     const { tasks } = this.props;
     const { task, lstPersonal } = this.state;
-    debugger;
+
     return (
       <div style={dvBorder}>
         {/* <div>
@@ -148,13 +146,12 @@ const mapDispatchtoProps = dispatch =>
     dispatch
   );
 
-function mapStateToProps(state) {
-  debugger;
-  const { tasks } = state;
+const mapStateToProps = state => {
+  const { tasks } = state.TaskReducer;
   return {
     tasks
   };
-}
+};
 
 const connectedTodoList = connect(
   mapStateToProps,

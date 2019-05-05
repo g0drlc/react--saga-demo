@@ -11,7 +11,7 @@ import {
   completeTasksAction,
   updateTasksAction,
   taskChange
-} from "../actions";
+} from "../redux-modules/actions";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
@@ -21,13 +21,13 @@ import NestAdd from "./nested/nest-add";
 class TaskAddEdit extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   task: {
-    //     title: "",
-    //     description: "",
-    //     completed: false
-    //   }
-    // };
+    this.state = {
+      task: {
+        title: "",
+        description: "",
+        completed: false
+      }
+    };
   }
 
   componentDidMount() {
@@ -54,7 +54,6 @@ class TaskAddEdit extends React.Component {
     // }
   }
   handleSave = e => {
-    debugger;
     if (this.props.match.params.id) {
       const { taskInitial } = this.props;
       taskInitial.id = parseInt(this.props.match.params.id, 10);
@@ -70,19 +69,19 @@ class TaskAddEdit extends React.Component {
   };
 
   handleChange = e => {
-    debugger;
     const { taskInitial } = this.props;
     const { name, value } = e.target;
     let model = { ...taskInitial };
     model[name] = value;
+    const { task } = this.state;
+    // this.props.taskChange(model);
 
-    this.props.taskChange(model);
-    // this.setState({
-    //   task: {
-    //     ...task,
-    //     [name]: value
-    //   }
-    // });
+    this.setState({
+      task: {
+        ...task,
+        [name]: value
+      }
+    });
   };
   handleDelete(id) {
     this.props.deleteTasksAction(id);
@@ -110,14 +109,15 @@ class TaskAddEdit extends React.Component {
   }
 
   render() {
-    const { taskInitial } = this.props;
+    // const { taskInitial } = this.props;
+    const { task } = this.state;
 
     return (
       <div>
         <Link to="/addedit/nestadd">nestadd</Link>
         <Route exact path="/addedit/nestadd" component={NestAdd} />
         <div>
-          {taskInitial && (
+          {task && (
             <div>
               <Link to="/todolist"> Back to Tasks</Link>
               <form>
@@ -125,7 +125,8 @@ class TaskAddEdit extends React.Component {
                   name="title"
                   placeholder="Title*"
                   label="Title*"
-                  value={taskInitial.title}
+                  value={task.title}
+                  // value={taskInitial.title}
                   onChange={this.handleChange}
                 />
                 {
@@ -146,14 +147,15 @@ class TaskAddEdit extends React.Component {
                   placeholder="Description"
                   label="Description"
                   onChange={this.handleChange}
-                  value={taskInitial.description}
+                  // value={taskInitial.description}
+                  value={task.description}
                 />{" "}
                 <br />
                 <Button
                   color="primary"
                   variant="contained"
                   onClick={this.handleSave}
-                  disabled={taskInitial.title === ""}
+                  disabled={task.title === ""}
                 >
                   Save
                 </Button>

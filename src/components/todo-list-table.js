@@ -10,7 +10,7 @@ import { history } from "../history/history";
 class TodoListTable extends Component {
   render() {
     const { tasks } = this.props;
-    debugger;
+
     return (
       <div>
         {" "}

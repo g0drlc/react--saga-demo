@@ -1,4 +1,4 @@
-import { TaskConstants } from "../constants";
+import { TaskConstants } from "../../constants";
 
 const getTasksAction = () => ({
   type: TaskConstants.GET_REQUEST
@@ -9,7 +9,7 @@ const editTasksAction = id => ({
   id: id
 });
 
-const createTasksAction = title => ({ 
+const createTasksAction = title => ({
   type: TaskConstants.CREATE_REQUEST,
   title: title
 });

@@ -1,7 +1,6 @@
-import { TaskConstants } from "../constants";
+import { TaskConstants } from "../../constants";
 
 export function TaskReducer(state = {}, action) {
-  debugger;
   switch (action.type) {
     case TaskConstants.GET_REQUEST:
       return {

@@ -1,0 +1,7 @@
+export const commonConstants = {
+  DRAW_OPEN: "DRAW_OPEN",
+  DRAW_CLOSE: "DRAW_CLOSE",
+  LOGIN_REQUEST: "LOGIN_REQUEST",
+  lOGIN_SUCCESS: "lOGIN_SUCCESS",
+  ERROR: "ERROR"
+};
